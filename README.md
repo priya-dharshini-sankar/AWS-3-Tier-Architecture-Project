@@ -31,6 +31,16 @@
 
 `Internet` → `Public ALB` → `Nginx Web Tier` → `Internal ALB` → `Flask Application Tier` → `RDS MySQL`
 
+## 🧩 Application Architecture
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Web Tier** | Nginx | Serves web traffic and forwards requests to the application tier |
+| **Application Tier** | Python + Flask | Processes application requests and communicates with the database |
+| **Database Tier** | Amazon RDS MySQL | Provides persistent storage for application feedback records |
+
+**Application Flow:** `Client → Public ALB → Nginx → Internal ALB → Flask → RDS MySQL`
+
 ## ⚙️ Engineering Implementation
 
 - 🌐 **Network Architecture** — Built a custom VPC with six subnets across two Availability Zones, including Internet Gateway, NAT Gateway, and route-table configuration.
